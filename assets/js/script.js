@@ -14,42 +14,27 @@ document.getElementById("calc-form").addEventListener("submit", function(event) 
 function calculateFinalPrice(price, brand, discountLevel) {
 
     const discounts = {
-        "vwa": {
-            "0": "0.00",
-            "1": "49.00",
-            "2": "41.50",
-            "3": "34.00",
-            "4": "26.00",
-            "5": "19.00",
-            "6": "17.00",
-            "7": "13.50",
-            "8": "11.00",
-            "additional": "4.30"
-        },
-        "other": {
-            "0": "0.00",
-            "1": "51.00",
-            "2": "43.50",
-            "3": "36.00",
-            "4": "28.00",
-            "5": "21.00",
-            "6": "19.00",
-            "7": "15.00",
-            "8": "12.50",
-            "additional": "5.00"
-        }
+        "0": "0.00",
+        "1": "49.00",
+        "2": "41.50",
+        "3": "34.00",
+        "4": "26.00",
+        "5": "19.00",
+        "6": "17.00",
+        "7": "13.50",
+        "8": "11.00",
+        "vwa": "4.30",
+        "other": "5.00",
+
     };
 
     let increase = 0.00;
-    let discount = 0.00;
+    let discount = parseFloat(discounts[discountLevel]);
 
     if (brand == "vwa") {
-        increase = parseFloat(discounts.vwa.additional);
-        discount = parseFloat(discounts.vwa[discountLevel]);
-
+        increase = parseFloat(discounts.vwa);
     } else {
-        increase = parseFloat(discounts.other.additional);
-        discount = parseFloat(discounts.other[discountLevel]);
+        increase = parseFloat(discounts.other);
     };
 
     let reducedPrice = price - ((price / 100) * discount);
