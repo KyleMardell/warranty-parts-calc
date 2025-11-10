@@ -16,3 +16,9 @@
     max-width: 80px;
     height: 100%;
 }
+
+.counterapi {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+}
