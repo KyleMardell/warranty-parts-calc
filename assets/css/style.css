@@ -12,6 +12,14 @@
     min-width: 150px;
 }
 
+.policy-check {
+    min-width: 150px;
+}
+
+.excess-check {
+    min-width: 100px;
+}
+
 .logo {
     max-width: 80px;
     height: 100%;
@@ -21,4 +29,17 @@
     position: fixed;
     bottom: 5px;
     right: 5px;
+}
+
+.ber-logo {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    height: 50px;
+
+}
+
+.ber-logo-wrapper:hover .ber-logo {
+    opacity: 1;
+    transform: translateX(0);
 }
