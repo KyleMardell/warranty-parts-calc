@@ -44,11 +44,9 @@ document.getElementById("ber-form").addEventListener("submit", function (event) 
     // Main calculation
     const amountToCustomer = vehicleValue - (salvageCosts + excessAmount + remainingPayment);
 
-    // VAT (20%)
-    const vatAmount = amountToCustomer * 0.2;
-
-    // Amount on claim
-    const amountOnClaim = amountToCustomer - vatAmount;
+    // Correct VAT reverse calculation
+    const amountOnClaim = amountToCustomer / 1.2;
+    const vatAmount = amountToCustomer - amountOnClaim;
 
     // Update UI
     document.getElementById("result-to-customer").innerText = amountToCustomer.toFixed(2);
