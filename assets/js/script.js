@@ -44,10 +44,10 @@ function calculateFinalPrice(price, brand, discountLevel) {
     let reducedPrice = price - (price / 100) * discount;
     let amountToAdd = (reducedPrice / 100) * increase;
 
-    if (amountToAdd > 100) {
-        amountToAdd = 100;
-        capMessage = "£100 cap";
-    }
+    // if (amountToAdd > 100) {
+    //     amountToAdd = 100;
+    //     capMessage = "£100 cap";
+    // }
     let finalPrice = reducedPrice + amountToAdd;
     finalPrice = finalPrice.toFixed(2);
 
