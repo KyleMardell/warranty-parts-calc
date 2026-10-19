@@ -1,0 +1,91 @@
+﻿Policy ID,Programme,Policy,Cover,Variant,Scenario,Vehicle value,Previous claims entered,Salvage,Excess entered,Payments entered,Previous claims applied,Excess applied,Payments applied,Remaining limit,Customer inc VAT,Claim exc VAT,VAT,Result
+2,150,AUDI Approved Used,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+2,150,AUDI Approved Used,All Component,,Previous claims and payments,12500,1750,2400,100,360,1750.00,0.00,0.00,10750.00,8350.00,6958.33,1391.67,PASS
+2,150,AUDI Approved Used,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,1234.56,0.00,0.00,7516.09,5940.84,4950.70,990.14,PASS
+2,150,AUDI Approved Used,All Component,,Low remaining allowance,4200,3900,700,100,240,3900.00,0.00,0.00,300.00,0.00,0.00,0.00,PASS
+2,150,AUDI Approved Used,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,1200.00,0.00,0.00,5300.00,0.00,0.00,0.00,PASS
+3,149,SEAT Approved Used,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+3,149,SEAT Approved Used,All Component,,Previous claims and payments,12500,1750,2400,100,360,1750.00,0.00,0.00,10750.00,8350.00,6958.33,1391.67,PASS
+3,149,SEAT Approved Used,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,1234.56,0.00,0.00,7516.09,5940.84,4950.70,990.14,PASS
+3,149,SEAT Approved Used,All Component,,Low remaining allowance,4200,3900,700,100,240,3900.00,0.00,0.00,300.00,0.00,0.00,0.00,PASS
+3,149,SEAT Approved Used,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,1200.00,0.00,0.00,5300.00,0.00,0.00,0.00,PASS
+4-fixed,149,SEAT Approved Used,Named Component,"£1,000 limit",Low salvage,18000,0,120,0,0,0.00,0.00,0.00,1000.00,880.00,733.33,146.67,PASS
+4-fixed,149,SEAT Approved Used,Named Component,"£1,000 limit",Typical fixed-limit settlement,12500,1750,275.50,100,360,0.00,0.00,0.00,1000.00,724.50,603.75,120.75,PASS
+4-fixed,149,SEAT Approved Used,Named Component,"£1,000 limit",Pence and VAT rounding,8750.65,1234.56,640.25,250,149.99,0.00,0.00,0.00,1000.00,359.75,299.79,59.96,PASS
+4-fixed,149,SEAT Approved Used,Named Component,"£1,000 limit",Salvage equals limit,4200,3900,1000,100,240,0.00,0.00,0.00,1000.00,0.00,0.00,0.00,PASS
+4-fixed,149,SEAT Approved Used,Named Component,"£1,000 limit",Salvage exceeds limit,6500,1200,1350,250,480,0.00,0.00,0.00,1000.00,0.00,0.00,0.00,PASS
+4,149,SEAT Approved Used,Named Component,Purchase-price limit,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+4,149,SEAT Approved Used,Named Component,Purchase-price limit,Previous claims and payments,12500,1750,2400,100,360,1750.00,0.00,0.00,10750.00,8350.00,6958.33,1391.67,PASS
+4,149,SEAT Approved Used,Named Component,Purchase-price limit,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,1234.56,0.00,0.00,7516.09,5940.84,4950.70,990.14,PASS
+4,149,SEAT Approved Used,Named Component,Purchase-price limit,Low remaining allowance,4200,3900,700,100,240,3900.00,0.00,0.00,300.00,0.00,0.00,0.00,PASS
+4,149,SEAT Approved Used,Named Component,Purchase-price limit,Salvage exceeds allowance,6500,1200,7000,250,480,1200.00,0.00,0.00,5300.00,0.00,0.00,0.00,PASS
+5-fixed,571,SEAT Approved Used Non VW brand,Named Component,"£1,000 limit",Low salvage,18000,0,120,0,0,0.00,0.00,0.00,1000.00,880.00,733.33,146.67,PASS
+5-fixed,571,SEAT Approved Used Non VW brand,Named Component,"£1,000 limit",Typical fixed-limit settlement,12500,1750,275.50,100,360,0.00,0.00,0.00,1000.00,724.50,603.75,120.75,PASS
+5-fixed,571,SEAT Approved Used Non VW brand,Named Component,"£1,000 limit",Pence and VAT rounding,8750.65,1234.56,640.25,250,149.99,0.00,0.00,0.00,1000.00,359.75,299.79,59.96,PASS
+5-fixed,571,SEAT Approved Used Non VW brand,Named Component,"£1,000 limit",Salvage equals limit,4200,3900,1000,100,240,0.00,0.00,0.00,1000.00,0.00,0.00,0.00,PASS
+5-fixed,571,SEAT Approved Used Non VW brand,Named Component,"£1,000 limit",Salvage exceeds limit,6500,1200,1350,250,480,0.00,0.00,0.00,1000.00,0.00,0.00,0.00,PASS
+5,571,SEAT Approved Used Non VW brand,Named Component,CMV limit,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+5,571,SEAT Approved Used Non VW brand,Named Component,CMV limit,Previous claims and payments,12500,1750,2400,100,360,1750.00,0.00,0.00,10750.00,8350.00,6958.33,1391.67,PASS
+5,571,SEAT Approved Used Non VW brand,Named Component,CMV limit,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,1234.56,0.00,0.00,7516.09,5940.84,4950.70,990.14,PASS
+5,571,SEAT Approved Used Non VW brand,Named Component,CMV limit,Low remaining allowance,4200,3900,700,100,240,3900.00,0.00,0.00,300.00,0.00,0.00,0.00,PASS
+5,571,SEAT Approved Used Non VW brand,Named Component,CMV limit,Salvage exceeds allowance,6500,1200,7000,250,480,1200.00,0.00,0.00,5300.00,0.00,0.00,0.00,PASS
+6,148,SKODA Approved Used,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+6,148,SKODA Approved Used,All Component,,Previous claims and payments,12500,1750,2400,100,360,1750.00,0.00,0.00,10750.00,8350.00,6958.33,1391.67,PASS
+6,148,SKODA Approved Used,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,1234.56,0.00,0.00,7516.09,5940.84,4950.70,990.14,PASS
+6,148,SKODA Approved Used,All Component,,Low remaining allowance,4200,3900,700,100,240,3900.00,0.00,0.00,300.00,0.00,0.00,0.00,PASS
+6,148,SKODA Approved Used,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,1200.00,0.00,0.00,5300.00,0.00,0.00,0.00,PASS
+7,570,SKODA Approved Used Non VW brand,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+7,570,SKODA Approved Used Non VW brand,All Component,,Previous claims and payments,12500,1750,2400,100,360,0.00,0.00,0.00,12500.00,10100.00,8416.67,1683.33,PASS
+7,570,SKODA Approved Used Non VW brand,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,0.00,0.00,0.00,8750.65,7175.40,5979.50,1195.90,PASS
+7,570,SKODA Approved Used Non VW brand,All Component,,Low remaining allowance,4200,3900,700,100,240,0.00,0.00,0.00,4200.00,3500.00,2916.67,583.33,PASS
+7,570,SKODA Approved Used Non VW brand,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,0.00,0.00,0.00,6500.00,0.00,0.00,0.00,PASS
+8,693,CUPRA Approved Used,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+8,693,CUPRA Approved Used,All Component,,Previous claims and payments,12500,1750,2400,100,360,1750.00,0.00,0.00,10750.00,8350.00,6958.33,1391.67,PASS
+8,693,CUPRA Approved Used,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,1234.56,0.00,0.00,7516.09,5940.84,4950.70,990.14,PASS
+8,693,CUPRA Approved Used,All Component,,Low remaining allowance,4200,3900,700,100,240,3900.00,0.00,0.00,300.00,0.00,0.00,0.00,PASS
+8,693,CUPRA Approved Used,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,1200.00,0.00,0.00,5300.00,0.00,0.00,0.00,PASS
+9,151,VOLKSWAGEN Approved Used,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+9,151,VOLKSWAGEN Approved Used,All Component,,Previous claims and payments,12500,1750,2400,100,360,1750.00,0.00,0.00,10750.00,8350.00,6958.33,1391.67,PASS
+9,151,VOLKSWAGEN Approved Used,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,1234.56,0.00,0.00,7516.09,5940.84,4950.70,990.14,PASS
+9,151,VOLKSWAGEN Approved Used,All Component,,Low remaining allowance,4200,3900,700,100,240,3900.00,0.00,0.00,300.00,0.00,0.00,0.00,PASS
+9,151,VOLKSWAGEN Approved Used,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,1200.00,0.00,0.00,5300.00,0.00,0.00,0.00,PASS
+10,573,VOLKSWAGEN Approved Used Non VW brand,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+10,573,VOLKSWAGEN Approved Used Non VW brand,All Component,,Previous claims and payments,12500,1750,2400,100,360,0.00,0.00,0.00,12500.00,10100.00,8416.67,1683.33,PASS
+10,573,VOLKSWAGEN Approved Used Non VW brand,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,0.00,0.00,0.00,8750.65,7175.40,5979.50,1195.90,PASS
+10,573,VOLKSWAGEN Approved Used Non VW brand,All Component,,Low remaining allowance,4200,3900,700,100,240,0.00,0.00,0.00,4200.00,3500.00,2916.67,583.33,PASS
+10,573,VOLKSWAGEN Approved Used Non VW brand,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,0.00,0.00,0.00,6500.00,0.00,0.00,0.00,PASS
+11,152,VOLKSWAGEN CV Approved Used,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+11,152,VOLKSWAGEN CV Approved Used,All Component,,Previous claims and payments,12500,1750,2400,100,360,0.00,0.00,0.00,12500.00,10100.00,8416.67,1683.33,PASS
+11,152,VOLKSWAGEN CV Approved Used,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,0.00,0.00,0.00,8750.65,7175.40,5979.50,1195.90,PASS
+11,152,VOLKSWAGEN CV Approved Used,All Component,,Low remaining allowance,4200,3900,700,100,240,0.00,0.00,0.00,4200.00,3500.00,2916.67,583.33,PASS
+11,152,VOLKSWAGEN CV Approved Used,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,0.00,0.00,0.00,6500.00,0.00,0.00,0.00,PASS
+12,574,VOLKSWAGEN CV Approved Used Non VW brand,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+12,574,VOLKSWAGEN CV Approved Used Non VW brand,All Component,,Previous claims and payments,12500,1750,2400,100,360,0.00,0.00,0.00,12500.00,10100.00,8416.67,1683.33,PASS
+12,574,VOLKSWAGEN CV Approved Used Non VW brand,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,0.00,0.00,0.00,8750.65,7175.40,5979.50,1195.90,PASS
+12,574,VOLKSWAGEN CV Approved Used Non VW brand,All Component,,Low remaining allowance,4200,3900,700,100,240,0.00,0.00,0.00,4200.00,3500.00,2916.67,583.33,PASS
+12,574,VOLKSWAGEN CV Approved Used Non VW brand,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,0.00,0.00,0.00,6500.00,0.00,0.00,0.00,PASS
+13,470,All in from Audi warranty,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+13,470,All in from Audi warranty,All Component,,Previous claims and payments,12500,1750,2400,100,360,1750.00,100.00,360.00,10750.00,7890.00,6575.00,1315.00,PASS
+13,470,All in from Audi warranty,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,1234.56,250.00,149.99,7516.09,5540.85,4617.38,923.47,PASS
+13,470,All in from Audi warranty,All Component,,Low remaining allowance,4200,3900,700,100,240,3900.00,100.00,240.00,300.00,0.00,0.00,0.00,PASS
+13,470,All in from Audi warranty,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,1200.00,250.00,480.00,5300.00,0.00,0.00,0.00,PASS
+14,469,All in from SEAT warranty,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+14,469,All in from SEAT warranty,All Component,,Previous claims and payments,12500,1750,2400,100,360,1750.00,100.00,360.00,10750.00,7890.00,6575.00,1315.00,PASS
+14,469,All in from SEAT warranty,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,1234.56,250.00,149.99,7516.09,5540.85,4617.38,923.47,PASS
+14,469,All in from SEAT warranty,All Component,,Low remaining allowance,4200,3900,700,100,240,3900.00,100.00,240.00,300.00,0.00,0.00,0.00,PASS
+14,469,All in from SEAT warranty,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,1200.00,250.00,480.00,5300.00,0.00,0.00,0.00,PASS
+15,464,All in from SKODA warranty,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+15,464,All in from SKODA warranty,All Component,,Previous claims and payments,12500,1750,2400,100,360,0.00,100.00,360.00,12500.00,9640.00,8033.33,1606.67,PASS
+15,464,All in from SKODA warranty,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,0.00,250.00,149.99,8750.65,6775.41,5646.18,1129.23,PASS
+15,464,All in from SKODA warranty,All Component,,Low remaining allowance,4200,3900,700,100,240,0.00,100.00,240.00,4200.00,3160.00,2633.33,526.67,PASS
+15,464,All in from SKODA warranty,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,0.00,250.00,480.00,6500.00,0.00,0.00,0.00,PASS
+16,471,All in from Volkswagen warranty,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+16,471,All in from Volkswagen warranty,All Component,,Previous claims and payments,12500,1750,2400,100,360,1750.00,100.00,360.00,10750.00,7890.00,6575.00,1315.00,PASS
+16,471,All in from Volkswagen warranty,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,1234.56,250.00,149.99,7516.09,5540.85,4617.38,923.47,PASS
+16,471,All in from Volkswagen warranty,All Component,,Low remaining allowance,4200,3900,700,100,240,3900.00,100.00,240.00,300.00,0.00,0.00,0.00,PASS
+16,471,All in from Volkswagen warranty,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,1200.00,250.00,480.00,5300.00,0.00,0.00,0.00,PASS
+17,472,All in from VWCV warranty,All Component,,Typical settlement,18000,0,3200,0,0,0.00,0.00,0.00,18000.00,14800.00,12333.33,2466.67,PASS
+17,472,All in from VWCV warranty,All Component,,Previous claims and payments,12500,1750,2400,100,360,0.00,100.00,360.00,12500.00,9640.00,8033.33,1606.67,PASS
+17,472,All in from VWCV warranty,All Component,,Pence and VAT rounding,8750.65,1234.56,1575.25,250,149.99,0.00,250.00,149.99,8750.65,6775.41,5646.18,1129.23,PASS
+17,472,All in from VWCV warranty,All Component,,Low remaining allowance,4200,3900,700,100,240,0.00,100.00,240.00,4200.00,3160.00,2633.33,526.67,PASS
+17,472,All in from VWCV warranty,All Component,,Salvage exceeds allowance,6500,1200,7000,250,480,0.00,250.00,480.00,6500.00,0.00,0.00,0.00,PASS

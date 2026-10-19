@@ -1,125 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B.E.R Calculator</title>
-
-    <!-- Bootstrap Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-    <section class="container">
-        <div class="row my-5">
-            <div class="col">
-                <div class="d-flex justify-content-center ber-logo-wrapper">
-                    <img src="media/ber.png" alt="Logo" class="ber-logo">
-                    <h1 class="text-center">B.E.R Calculator</h1>
-                </div>
+<main class="container py-4 ber-page">
+    <div class="d-flex justify-content-center ber-logo-wrapper mb-4">
+        <img src="media/ber.png" alt="" class="ber-logo">
+        <h1>B.E.R Calculator</h1>
+    </div>
+    <form id="ber-form" class="card p-3 p-md-4">
+        <h2 class="h4">Policy details</h2>
+        <fieldset class="mb-3">
+            <legend class="form-label fs-6">Policy type</legend>
+            <div id="policyType" class="ber-choices" role="group" aria-label="Policy type"></div>
+        </fieldset>
+        <fieldset class="mb-3">
+            <legend class="form-label fs-6">Warranty brand</legend>
+            <div id="brand" aria-describedby="brand-help">
+                <div id="brand-main" class="ber-choices" role="group" aria-label="Main warranty brands"></div>
+                <details id="non-brand-section" class="mt-3">
+                    <summary>Non brand policies</summary>
+                    <div id="brand-non-brand" class="ber-choices mt-2" role="group" aria-label="Non brand policies"></div>
+                </details>
+            </div>
+            <p id="brand-help" class="form-text">For Approved Used cover on a non-VWG vehicle, expand Non brand policies and select the warranty brand.</p>
+        </fieldset>
+        <fieldset id="policy-options" class="mb-2">
+            <legend class="form-label fs-6">Cover and claim limit</legend>
+            <div id="policy" class="ber-choices" role="group" aria-label="Cover and claim limit"></div>
+        </fieldset>
+        <p id="selected-programme" class="form-text"></p>
+        <div class="ber-limit-notice mt-3 mb-3" aria-live="polite" aria-atomic="true">
+            <h3 class="ber-limit-heading">Applicable claim limit</h3>
+            <p id="limit-rule" class="ber-limit-value"></p>
+        </div>
+        <details class="mb-3">
+            <summary>Official policy wording</summary>
+            <p id="policy-wording" class="ber-wording mt-2"></p>
+        </details>
+        <p id="consequential-notice" class="alert alert-warning" hidden>Check consequential failure cover: additional parts and labour for consequential damage are limited to £2,000 including VAT. This is separate from the original failed component and its associated repair. The calculator does not assess or apportion consequential damage costs.</p>
+        <h2 class="h4">Values and deductions</h2>
+        <p>Enter all amounts in GBP including VAT.</p>
+        <div class="row g-3">
+            <div id="vehicle-field" class="col-md-6">
+                <label for="vehicleValue" id="vehicle-label" class="form-label">Vehicle value</label>
+                <input type="number" id="vehicleValue" step="0.01" min="0" class="form-control" required aria-describedby="value-help">
+                <p id="value-help" class="form-text"></p>
+            </div>
+            <div id="previous-field" class="col-md-6" hidden>
+                <label for="previousClaims" class="form-label">Previous claims (including VAT)</label>
+                <input type="number" id="previousClaims" step="0.01" min="0" value="0" class="form-control" disabled required>
+            </div>
+            <div class="col-md-6">
+                <label for="salvageCosts" class="form-label">Salvage value</label>
+                <input type="number" id="salvageCosts" step="0.01" min="0" class="form-control" required>
             </div>
         </div>
-
-        <div class="row justify-content-center">
-            <div class="col col-12 col-md-6 col-lg-4 main-box">
-                <div class="row">
-                    <div class="col">
-                        <form class="calc-form my-3" id="ber-form">
-
-                            <!-- Vehicle Value -->
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Vehicle Value:</span>
-                                <input type="number" id="vehicleValue" step="0.01" min="0" placeholder="0.00"
-                                    class="form-control" required>
-                            </div>
-
-                            <!-- Salvage Costs -->
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Salvage Costs:</span>
-                                <input type="number" id="salvageCosts" step="0.01" min="0" placeholder="0.00"
-                                    class="form-control" required>
-                            </div>
-
-                            <!-- Policy -->
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Policy:</span>
-
-                                <input type="radio" class="btn-check" name="policyType" id="approved" checked>
-                                <label class="btn policy-check" for="approved">Approved</label>
-
-                                <input type="radio" class="btn-check" name="policyType" id="extended">
-                                <label class="btn policy-check" for="extended">Extended / All In</label>
-                            </div>
-
-                            <!-- Extended Inputs -->
-                            <div id="extended-inputs">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text">Excess:</span>
-
-                                    <input type="radio" class="btn-check" name="excessAmount" id="excess-0" checked>
-                                    <label class="btn excess-check" for="excess-0">No Excess</label>
-
-                                    <input type="radio" class="btn-check" name="excessAmount" id="excess-100">
-                                    <label class="btn excess-check" for="excess-100">£100</label>
-
-                                    <input type="radio" class="btn-check" name="excessAmount" id="excess-250">
-                                    <label class="btn excess-check" for="excess-250">£250</label>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text">Remaining Payment:</span>
-                                    <input type="number" id="remainingPayment" step="0.01" min="0" placeholder="0.00"
-                                        class="form-control">
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-secondary w-50">Calculate</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Results (always visible) -->
-                <div class="row mt-5">
-                    <div class="col">
-                        <div class="card" id="result-card">
-                            <div class="card-header text-center">
-                                <h2>Result</h2>
-                            </div>
-                            <div class="card-body text-center">
-                                <h3 class="my-4">
-                                    Amount to customer:
-                                    £<span id="result-to-customer">0.00</span>
-                                </h3>
-                                <p>Amount on claim: £<span id="result-on-claim">0.00</span></p>
-                                <p>VAT on claim: £<span id="vat-amount">0.00</span></p>
-                                <!-- Output Template (hidden until calculated) -->
-                                <div id="output-template-wrapper" class="mt-4" style="display: none;">
-                                    <textarea id="output-template" class="form-control" rows="8" readonly></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+        <div id="extended-inputs" class="row g-3 mt-0" hidden>
+            <div class="col-md-6">
+                <label for="excessAmount" class="form-label">Policy excess</label>
+                <select id="excessAmount" class="form-select" disabled>
+                    <option value="0">No excess</option>
+                    <option value="100">£100</option>
+                    <option value="250">£250</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="remainingPayment" class="form-label">Remaining payments</label>
+                <input type="number" id="remainingPayment" step="0.01" min="0" value="0" class="form-control" disabled required>
             </div>
         </div>
-
-        <div class="row m-5">
-            <div class="col text-center">
-                <a href="index.html" class="btn btn-secondary w-25 mt-3">Parts Calculator</a>
-            </div>
+        <button type="submit" class="btn btn-secondary align-self-center mt-4 px-5">Calculate</button>
+    </form>
+    <p id="result-status" class="mt-3" role="status">Enter the policy details and values, then calculate.</p>
+    <section id="result-card" class="card mt-3" hidden aria-labelledby="result-heading">
+        <div class="card-header"><h2 id="result-heading" class="h4 mb-0">Result</h2></div>
+        <div class="card-body">
+            <p>Policy claim limit before deductions: <strong id="result-limit"></strong></p>
+            <p>Remaining claim limit after previous claims: <strong id="result-remaining"></strong></p>
+            <p id="calculation-breakdown"></p>
+            <h3 class="h4">Amount to customer: <span id="result-to-customer"></span></h3>
+            <p>Amount on claim excluding VAT: <span id="result-on-claim"></span></p>
+            <p>VAT on claim (20%): <span id="vat-amount"></span></p>
+            <p id="zero-notice" class="alert alert-warning" hidden>The deductions exhaust the available limit. The payable amount is £0.00.</p>
+            <label for="output-template" class="form-label">Claim summary — select and copy</label>
+            <textarea id="output-template" class="form-control" rows="14" readonly></textarea>
         </div>
     </section>
-
-    <!-- Bootstrap Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-
-    <!-- Custom Script -->
-    <script src="assets/js/berscript.js"></script>
+    <div class="text-center my-4"><a href="index.html" class="btn btn-secondary">Parts Calculator</a></div>
+</main>
+<script src="assets/js/berpolicies.js"></script>
+<script src="assets/js/berscript.js"></script>
 </body>
-
 </html>

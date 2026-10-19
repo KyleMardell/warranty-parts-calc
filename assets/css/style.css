@@ -43,3 +43,38 @@
     opacity: 1;
     transform: translateX(0);
 }
+/* B.E.R page only; the parts calculator retains its existing layout. */
+.ber-page { max-width: 850px; }
+.ber-wording { white-space: pre-wrap; overflow-wrap: anywhere; }
+.ber-page select { white-space: normal; }
+.ber-page textarea { font-size: 0.9rem; }
+[hidden] { display: none !important; }
+
+.ber-choices { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.ber-choices .btn { text-align: left; }
+.ber-choices .btn[aria-pressed="true"] { color: #fff; background-color: #6c757d; border-color: #6c757d; }
+.ber-choices .btn:focus-visible { outline: 3px solid #0d6efd; outline-offset: 3px; }
+
+.ber-limit-notice {
+    padding: 1rem 1.25rem;
+    border: 1px solid #9ec5fe;
+    border-left: 6px solid #0a58ca;
+    border-radius: 0.5rem;
+    background-color: #e7f1ff;
+    color: #084298;
+}
+.ber-limit-heading { margin: 0 0 0.5rem; font-size: 1rem; font-weight: 600; }
+.ber-limit-value { margin: 0; font-size: 1.3rem; font-weight: 700; line-height: 1.4; }
+
+.ber-page input.form-control,
+.ber-page select.form-select {
+    border: 2px solid #8c99a5;
+    background-color: #f7f9fc;
+    min-height: 2.75rem;
+}
+.ber-page input.form-control:focus,
+.ber-page select.form-select:focus {
+    border-color: #0a58ca;
+    background-color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.18);
+}
