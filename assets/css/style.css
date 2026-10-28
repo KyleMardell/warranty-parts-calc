@@ -55,16 +55,51 @@
 .ber-choices .btn[aria-pressed="true"] { color: #fff; background-color: #6c757d; border-color: #6c757d; }
 .ber-choices .btn:focus-visible { outline: 3px solid #0d6efd; outline-offset: 3px; }
 
+/* Reserve the same control slots when switching policy families. */
+#brand-main { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ber-non-brand-slot { min-height: 1.5rem; position: relative; }
+#non-brand-section summary { cursor: pointer; }
+#non-brand-section[open] > .ber-choices {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    background: #fff;
+    box-shadow: 0 0.25rem 0.75rem #0002;
+}
+#policy { display: grid; grid-template-columns: 1fr; align-content: start; min-height: 10rem; }
+#policy > p { padding: 0.375rem 0; }
+.ber-limit-value { min-height: 4.2em; }
+#vehicle-field[hidden], #previous-field[hidden] { display: block !important; visibility: hidden; }
+#extended-inputs[hidden] { display: flex !important; visibility: hidden; }
+#ber-form label.form-label { min-height: 3rem; }
+@media (min-width: 576px) {
+    #brand-main, #policy { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #policy { min-height: 5.5rem; }
+    .ber-limit-value { min-height: 2.8em; }
+}
+
 .ber-limit-notice {
-    padding: 1rem 1.25rem;
-    border: 1px solid #9ec5fe;
-    border-left: 6px solid #0a58ca;
+    padding: 1.5rem;
+    border: 2px solid #0a58ca;
     border-radius: 0.5rem;
     background-color: #e7f1ff;
     color: #084298;
 }
 .ber-limit-heading { margin: 0 0 0.5rem; font-size: 1rem; font-weight: 600; }
-.ber-limit-value { margin: 0; font-size: 1.3rem; font-weight: 700; line-height: 1.4; }
+.ber-limit-value { margin: 0; font-size: 1.25rem; font-weight: 700; line-height: 1.4; overflow-wrap: anywhere; }
+
+.ber-result { border: 2px solid #0a58ca; overflow: hidden; }
+.ber-result-primary { padding: 1.5rem; background: #e7f1ff; color: #084298; }
+.ber-result-amount { margin: 0; font-size: clamp(2.25rem, 7vw, 3.5rem); font-weight: 700; line-height: 1.2; overflow-wrap: anywhere; }
+.ber-result-secondary { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-bottom: 1.5rem; }
+.ber-result-secondary dt { font-size: 0.9rem; font-weight: 400; color: #495057; }
+.ber-result-secondary dd { margin: 0.25rem 0 0; font-size: 1.25rem; font-weight: 600; }
+.ber-calculation-details { padding: 1rem 0; border-top: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6; }
+.ber-calculation-details summary { cursor: pointer; font-weight: 600; }
 
 .ber-page input.form-control,
 .ber-page select.form-select {

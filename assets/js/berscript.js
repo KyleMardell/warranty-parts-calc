@@ -22,6 +22,7 @@ function invalidateResult() {
     byId('result-card').hidden = true;
     byId('output-template').value = '';
     byId('result-status').textContent = '';
+    byId('copy-status').textContent = '';
 }
 
 // Native buttons retain keyboard activation and announce their selected state.
@@ -57,13 +58,15 @@ function updateBrands() {
     fillButtons(byId('brand'), orderedBrands.map((key) => {
         const [brand, nonVwg] = key.split(':');
         return [key, brandNames[brand] + (nonVwg ? ': non brand' : '')];
-    }), preferred, updatePolicies, (buttons) => {
+    }), preferred, () => {
+        byId('non-brand-section').open = false;
+        updatePolicies();
+    }, (buttons) => {
         byId('brand-main').replaceChildren(...buttons.slice(0, mainBrands.length));
         byId('brand-non-brand').replaceChildren(...buttons.slice(mainBrands.length));
     });
     byId('non-brand-section').hidden = nonBrands.length === 0;
     byId('non-brand-section').open = byId('brand').value.includes(':');
-    byId('brand-help').hidden = nonBrands.length === 0;
     updatePolicies();
 }
 
@@ -88,16 +91,12 @@ function updatePolicy() {
     const fixed = policy.basis === 'fixed';
     const allin = policy.family === 'allin';
     const basisLabel = policy.basis === 'purchase' ? 'Purchase price' : 'Current market value (CMV)';
-    byId('limit-rule').textContent = (fixed ? '£1,000 per claim' : basisLabel) + (policy.previous ? ' − previous claims (including VAT)' : '');
+    byId('limit-rule').textContent = (fixed ? '£1,000 per claim' : basisLabel) + (policy.previous ? ' − previous claims (inc VAT)' : '');
     byId('policy-wording').textContent = policy.wording;
     byId('consequential-notice').hidden = !policy.consequential;
     byId('vehicle-field').hidden = fixed;
     byId('vehicleValue').disabled = fixed;
     byId('vehicle-label').textContent = basisLabel;
-    byId('value-help').textContent = policy.basis === 'purchase'
-        ? 'If ownership has transferred, confirm the purchase price with the customer.'
-        : '';
-    byId('value-help').hidden = policy.basis !== 'purchase';
     byId('previous-field').hidden = !policy.previous;
     byId('previousClaims').disabled = !policy.previous;
     byId('extended-inputs').hidden = !allin;
@@ -120,6 +119,7 @@ byId('ber-form').addEventListener('submit', (event) => {
     const result = calculateBer(policy, values);
     byId('result-limit').textContent = money(result.limit);
     byId('result-remaining').textContent = money(result.remaining);
+    byId('result-remaining-row').hidden = !policy.previous;
     byId('result-to-customer').textContent = money(result.customer);
     byId('result-on-claim').textContent = money(result.claim);
     byId('vat-amount').textContent = money(result.vat);
@@ -127,23 +127,34 @@ byId('ber-form').addEventListener('submit', (event) => {
     byId('calculation-breakdown').textContent = breakdown;
     byId('zero-notice').hidden = result.customer > 0;
     const lines = [
-        `Policy: ${policyDescription(policy)}`,
-        `Limit basis: ${policy.basis === 'fixed' ? '£1,000 fixed per-claim limit' : policy.basis === 'purchase' ? 'Purchase price' : 'Independently confirmed CMV'}`,
         `Policy claim limit before deductions: ${money(result.limit)} inc VAT`,
-        ...(policy.previous ? [`Previous claims: ${money(result.previous)} inc VAT (confirm VAT-inclusive)`] : []),
-        `Remaining claim limit after previous claims: ${money(result.remaining)} inc VAT`,
+        ...(policy.previous ? [
+            `Previous claims: ${money(result.previous)} inc VAT`,
+            `Remaining claim limit: ${money(result.remaining)} inc VAT`
+        ] : []),
         `Salvage value: ${money(result.salvage)} inc VAT`,
         ...(policy.family === 'allin' ? [`Policy excess: ${money(result.excess)} inc VAT`, `Remaining payments: ${money(result.payments)} inc VAT`] : []),
         `Amount to customer: ${money(result.customer)} inc VAT`,
         `Total claim value: ${money(result.claim)} exc VAT`,
-        `VAT on claim (20%): ${money(result.vat)}`,
-        ...(policy.consequential ? [byId('consequential-notice').textContent] : []),
-        '', 'Official policy wording:', policy.wording
+        `VAT on claim (20%): ${money(result.vat)}`
     ];
     byId('output-template').value = lines.join('\n');
+    byId('output-template').rows = lines.length;
     byId('result-card').hidden = false;
-    byId('result-status').textContent = 'Calculation complete. All displayed limits and deductions include VAT; the claim amount excluding VAT is shown separately.';
+    byId('result-status').textContent = `Calculation complete. Amount to customer: ${money(result.customer)}.`;
+});
+byId('copy-summary').addEventListener('click', async () => {
+    const summary = byId('output-template');
+    const text = summary.value;
+    try {
+        await navigator.clipboard.writeText(text);
+        if (summary.value === text) byId('copy-status').textContent = 'Claim summary copied.';
+    } catch {
+        if (summary.value !== text) return;
+        summary.focus();
+        summary.select();
+        byId('copy-status').textContent = 'Press Ctrl+C (or Command+C) to copy the selected summary.';
+    }
 });
 fillButtons(byId('policyType'), [['approved', 'Approved Used'], ['allin', 'All-In / Extended']], 'approved', updateBrands);
 updateBrands();
-byId('result-status').textContent = 'Enter the policy details and values, then calculate.';

@@ -15,55 +15,51 @@
     </div>
     <form id="ber-form" class="card p-3 p-md-4">
         <h2 class="h4">Policy details</h2>
-        <fieldset class="mb-3">
-            <legend class="form-label fs-6">Policy type</legend>
+        <div class="mb-3">
             <div id="policyType" class="ber-choices" role="group" aria-label="Policy type"></div>
-        </fieldset>
+        </div>
         <fieldset class="mb-3">
             <legend class="form-label fs-6">Warranty brand</legend>
-            <div id="brand" aria-describedby="brand-help">
+            <div id="brand">
                 <div id="brand-main" class="ber-choices" role="group" aria-label="Main warranty brands"></div>
-                <details id="non-brand-section" class="mt-3">
-                    <summary>Non brand policies</summary>
-                    <div id="brand-non-brand" class="ber-choices mt-2" role="group" aria-label="Non brand policies"></div>
-                </details>
+                <div class="ber-non-brand-slot mt-3">
+                    <details id="non-brand-section">
+                        <summary>Non brand policies</summary>
+                        <div id="brand-non-brand" class="ber-choices mt-2" role="group" aria-label="Non brand policies"></div>
+                    </details>
+                </div>
             </div>
-            <p id="brand-help" class="form-text">For Approved Used cover on a non-VWG vehicle, expand Non brand policies and select the warranty brand.</p>
         </fieldset>
-        <fieldset id="policy-options" class="mb-2">
-            <legend class="form-label fs-6">Cover and claim limit</legend>
+        <div id="policy-options" class="mb-2">
             <div id="policy" class="ber-choices" role="group" aria-label="Cover and claim limit"></div>
-        </fieldset>
-        <p id="selected-programme" class="form-text"></p>
+        </div>
         <div class="ber-limit-notice mt-3 mb-3" aria-live="polite" aria-atomic="true">
             <h3 class="ber-limit-heading">Applicable claim limit</h3>
             <p id="limit-rule" class="ber-limit-value"></p>
         </div>
         <details class="mb-3">
             <summary>Official policy wording</summary>
+            <h3 id="selected-programme" class="h6 mt-3"></h3>
             <p id="policy-wording" class="ber-wording mt-2"></p>
         </details>
-        <p id="consequential-notice" class="alert alert-warning" hidden>Check consequential failure cover: additional parts and labour for consequential damage are limited to £2,000 including VAT. This is separate from the original failed component and its associated repair. The calculator does not assess or apportion consequential damage costs.</p>
         <h2 class="h4">Values and deductions</h2>
-        <p>Enter all amounts in GBP including VAT.</p>
         <div class="row g-3">
             <div id="vehicle-field" class="col-md-6">
-                <label for="vehicleValue" id="vehicle-label" class="form-label">Vehicle value</label>
-                <input type="number" id="vehicleValue" step="0.01" min="0" class="form-control" required aria-describedby="value-help">
-                <p id="value-help" class="form-text"></p>
+                <label for="vehicleValue" class="form-label"><span id="vehicle-label">Vehicle value</span> <small class="text-muted">(inc VAT)</small></label>
+                <input type="number" id="vehicleValue" step="0.01" min="0" class="form-control" required>
             </div>
             <div id="previous-field" class="col-md-6" hidden>
-                <label for="previousClaims" class="form-label">Previous claims (including VAT)</label>
+                <label for="previousClaims" class="form-label">Previous claims <small class="text-muted">(inc VAT)</small></label>
                 <input type="number" id="previousClaims" step="0.01" min="0" value="0" class="form-control" disabled required>
             </div>
             <div class="col-md-6">
-                <label for="salvageCosts" class="form-label">Salvage value</label>
+                <label for="salvageCosts" class="form-label">Salvage value <small class="text-muted">(inc VAT)</small></label>
                 <input type="number" id="salvageCosts" step="0.01" min="0" class="form-control" required>
             </div>
         </div>
         <div id="extended-inputs" class="row g-3 mt-0" hidden>
             <div class="col-md-6">
-                <label for="excessAmount" class="form-label">Policy excess</label>
+                <label for="excessAmount" class="form-label">Policy excess <small class="text-muted">(inc VAT)</small></label>
                 <select id="excessAmount" class="form-select" disabled>
                     <option value="0">No excess</option>
                     <option value="100">£100</option>
@@ -71,25 +67,40 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label for="remainingPayment" class="form-label">Remaining payments</label>
+                <label for="remainingPayment" class="form-label">Remaining payments <small class="text-muted">(inc VAT)</small></label>
                 <input type="number" id="remainingPayment" step="0.01" min="0" value="0" class="form-control" disabled required>
             </div>
         </div>
+        <p id="consequential-notice" class="alert alert-warning mt-3" hidden>Check consequential failure cover: additional parts and labour for consequential damage are limited to £2,000 including VAT. This is separate from the original failed component and its associated repair. The calculator does not assess or apportion consequential damage costs.</p>
         <button type="submit" class="btn btn-secondary align-self-center mt-4 px-5">Calculate</button>
     </form>
-    <p id="result-status" class="mt-3" role="status">Enter the policy details and values, then calculate.</p>
-    <section id="result-card" class="card mt-3" hidden aria-labelledby="result-heading">
-        <div class="card-header"><h2 id="result-heading" class="h4 mb-0">Result</h2></div>
+    <p id="result-status" class="visually-hidden" role="status"></p>
+    <section id="result-card" class="card ber-result mt-4" hidden aria-labelledby="result-heading">
+        <div class="ber-result-primary">
+            <h2 id="result-heading" class="h5">Amount to customer</h2>
+            <p id="result-to-customer" class="ber-result-amount"></p>
+        </div>
         <div class="card-body">
-            <p>Policy claim limit before deductions: <strong id="result-limit"></strong></p>
-            <p>Remaining claim limit after previous claims: <strong id="result-remaining"></strong></p>
-            <p id="calculation-breakdown"></p>
-            <h3 class="h4">Amount to customer: <span id="result-to-customer"></span></h3>
-            <p>Amount on claim excluding VAT: <span id="result-on-claim"></span></p>
-            <p>VAT on claim (20%): <span id="vat-amount"></span></p>
+            <p class="form-text mt-0">All amounts include VAT unless stated.</p>
+            <dl class="ber-result-secondary">
+                <div><dt>Claim amount excluding VAT</dt><dd id="result-on-claim"></dd></div>
+                <div><dt>VAT (20%)</dt><dd id="vat-amount"></dd></div>
+            </dl>
             <p id="zero-notice" class="alert alert-warning" hidden>The deductions exhaust the available limit. The payable amount is £0.00.</p>
-            <label for="output-template" class="form-label">Claim summary — select and copy</label>
-            <textarea id="output-template" class="form-control" rows="14" readonly></textarea>
+            <details class="ber-calculation-details mb-4">
+                <summary>Calculation details</summary>
+                <div class="mt-3">
+                    <p>Policy claim limit before deductions: <strong id="result-limit"></strong></p>
+                    <p id="result-remaining-row">Remaining claim limit after previous claims: <strong id="result-remaining"></strong></p>
+                    <p id="calculation-breakdown" class="mb-0"></p>
+                </div>
+            </details>
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                <label for="output-template" class="form-label mb-0">Claim summary</label>
+                <button id="copy-summary" type="button" class="btn btn-outline-secondary btn-sm">Copy claim summary</button>
+            </div>
+            <textarea id="output-template" class="form-control" rows="8" readonly></textarea>
+            <p id="copy-status" class="form-text mb-0" role="status"></p>
         </div>
     </section>
     <div class="text-center my-4"><a href="index.html" class="btn btn-secondary">Parts Calculator</a></div>
